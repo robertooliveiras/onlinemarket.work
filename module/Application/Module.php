@@ -11,6 +11,7 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\Navigation\Page\Mvc;
 
 class Module
 {
@@ -19,7 +20,21 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+        
+        // escutar / listens: "dispatch" event
+        // context: $this
+        // handler / callback / metodo: onDispatch()
+        // priority / prioridade: 100
+        // funciona igual: $eventManager->attach('dispatch' , array($this,'onDispatch') , 100);
+        $eventManager->attach(MvcEvent::EVENT_DISPATCH , array($this,'onDispatch') , 100);
     }
+
+    public function onDispatch(MvcEvent $e)
+    {
+        $vm = $e->getViewModel();
+        $vm->setVariable("categories", "CATEGORY_LIST");
+    }
+    
 
     public function getConfig()
     {
