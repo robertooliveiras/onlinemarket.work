@@ -53,6 +53,23 @@ return array(
         ),
     ),
     'service_manager' => array(
+        'services' => array(
+            'categories' => array(
+                'barter',
+                'beauty',
+                'clothing',
+                'computer',
+                'entertainment',
+                'free',
+                'garden',
+                'general'
+            )
+        ),
+        //opcição de uso no Module.php implementando o metodo getServiseConfig
+        //ver comentários e outros detalhes no Module.php
+        'invokables' => array(
+            'Application\Service\ExemploService' => 'Application\Service\ExemploService'
+        ), 
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',

@@ -22,6 +22,8 @@ class IndexController extends AbstractActionController
     public function exemploaAction()
     {
         $nome = "Zend Framework 2 (exemplo a)";
+        $exemploService = $this->getServiceLocator()->get("Application\Service\ExemploService");
+        //         print_r($exemploService);//die;
         return new ViewModel(array('nome'=>$nome));
     }
     
