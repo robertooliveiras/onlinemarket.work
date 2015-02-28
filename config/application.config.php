@@ -5,6 +5,7 @@ return array(
         'Application',
         'Market',
         'Search',
+        'Client',
         'ZendDeveloperTools'
     ),
 
