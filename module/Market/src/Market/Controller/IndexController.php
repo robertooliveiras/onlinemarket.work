@@ -16,10 +16,11 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $messages = array();
+        $messages = array("Welcome to the Online Market");
         if($this->flashmessenger()->hasMessages()) {
             $messages = $this->flashmessenger()->getMessages();
         }
+//         return array('messages'=>$messages);
         return new ViewModel(array('messages'=>$messages));
     }
 

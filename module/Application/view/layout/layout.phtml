@@ -49,8 +49,13 @@
         <div class="container">
             <div class="col-lg-2"><!-- M3Ex1 < ? php //echo $this->categories; ? >  --> 
                 <h3>Categories</h3>
-                <?php echo $this->htmllist($this->categories); ?>
-                <!--  o helper htmllist substitui o código abaixo           
+                <?php echo $this->leftLinks($this->categories,$this->basePath().'/market/view/main/'); ?>
+                <!--  
+                Ao criar o Helper leftLinks e registra-lo no view_helpers do Application/module.config.php
+                o helper leftLinks substituiu o helper htmllist
+                
+                $this->htmllist($this->categories)
+                o helper htmllist substitui o código abaixo           
                 <ul>
                 < ? php foreach ($this->categories as $category): ? >
                     <li>< ? php echo $category; ? ></li>
