@@ -35,6 +35,12 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
+                    'default' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/[:action[/:param]]',
+                        )
+                    ),
                     'view' => array(
                         'type' => 'Literal',
                         'options' => array(
@@ -91,6 +97,15 @@ return array(
                             'defaults' => array(
                                 'controller' => 'market-post-controller',
                                 'action' => 'index'
+                            )
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'default' => array(
+                                'type' => 'Segment',
+                                'options' => array(
+                                    'route' => '/[:action[/:param]]',
+                                )
                             )
                         )
                     ) // fecha market post
