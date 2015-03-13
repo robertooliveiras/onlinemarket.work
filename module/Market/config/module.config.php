@@ -46,10 +46,25 @@ return array(
                         ),
                         'may_terminate' => true,
                         'child_routes' => array(
+                            'default' => array(
+                                'type' => 'Segment',
+                                'options' => array(
+                                    'route' => '/[:action[/:param]]',
+                                )
+                            ),
                             'main' => array(
                                 'type' => 'Segment',
                                 'options' => array(
                                     'route' => '/main[/:category]',
+                                    'defaults' => array(
+                                        'action' => 'index'
+                                    )
+                                )
+                            ),
+                            'index' => array(
+                                'type' => 'Segment',
+                                'options' => array(
+                                    'route' => '/index[/:category]',
                                     'defaults' => array(
                                         'action' => 'index'
                                     )
