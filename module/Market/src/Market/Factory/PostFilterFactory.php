@@ -11,7 +11,7 @@ class PostFilterFactory implements FactoryInterface
     {
         $filter = new PostFilter();
         $filter->setCategories($sm->get('categories'));
-        $filter->buildForm();
+        $filter->buildFilter();
         
         return $filter;
     }
