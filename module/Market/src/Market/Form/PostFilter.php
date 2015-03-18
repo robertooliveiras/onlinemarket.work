@@ -30,11 +30,11 @@ class PostFilter extends InputFilter
               ->attachByName('StripTags');
         
         $titleRegex = new Regex(array('pattern'=>'/^[a-zA-Z0-9 ]*$/'));
-        $titleRegex->setMessages('O título pode conter numeros, letras ou espaços');
+        $titleRegex->setMessage('Title should contain only numbers, letters or spaces.');
         
         $title->getValidatorChain()
               ->attach($titleRegex)
-              ->attachByName('StripLength',array('min'=>1,'max'=>128));
+              ->attachByName('StringLength',array('min'=>1,'max'=>128));
         
         $this->add($category)
              ->add($title);
