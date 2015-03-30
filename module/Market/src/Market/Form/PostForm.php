@@ -41,6 +41,15 @@ class PostForm extends Form
         $title->setLabel("Title")
               ->setAttributes(array('size'=>55, 'maxLength'=>128));
         
+
+        $photoFilename = new Textarea('photo_filename');
+        $photoFilename->setLabel("Photo Filename")
+        ->setAttributes(array('rows'=>4, 'cols'=>80, 'maxLength'=>1024));
+        
+        $price = new Text('price');
+        $price->setLabel("Price")
+        ->setAttributes(array('size'=>16, 'maxLength'=>16));
+        
         $dateCreated = new Date('dateCreated');
         $dateCreated->setLabel("Date Created")
               ->setAttributes(array('size'=>20, 'maxLength'=>10));
@@ -53,9 +62,6 @@ class PostForm extends Form
         $descripton->setLabel("Descripton")
               ->setAttributes(array('rows'=>4, 'cols'=>80, 'maxLength'=>4096));
         
-        $photoFilename = new Textarea('photoFilename');
-        $photoFilename->setLabel("Photo Filename")
-              ->setAttributes(array('rows'=>4, 'cols'=>80, 'maxLength'=>1024));
         
         $contactName = new Text('contactName');
         $contactName->setLabel("Contact Name")
@@ -77,13 +83,9 @@ class PostForm extends Form
         $country->setLabel("Country")
               ->setAttributes(array('size'=>2, 'maxLength'=>2));
         
-        $price = new Text('price');
-        $price->setLabel("Price")
-              ->setAttributes(array('size'=>16, 'maxLength'=>16));
-        
-//         $deleteCode = new Text('deleteCode');
-//         $deleteCode->setLabel("Delete Code")
-//               ->setAttributes(array('size'=>30, 'maxLength'=>16));
+        $deleteCode = new Text('deleteCode');
+        $deleteCode->setLabel("Delete Code")
+              ->setAttributes(array('size'=>30, 'maxLength'=>16));
         
         $submit = new Submit('submit');                
         $submit->setAttribute('value', 'Post');
