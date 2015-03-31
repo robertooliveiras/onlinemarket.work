@@ -2,11 +2,11 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'market-index-controller' => 'Market\Controller\IndexController',
-            'market-view-controller' => 'Market\Controller\ViewController'
         ),
         'factories' => array(
             'market-post-controller' => 'Market\Factory\PostControllerFactory',
+            'market-index-controller' => 'Market\Factory\IndexControllerFactory',
+            'market-view-controller' => 'Market\Factory\ViewControllerFactory'
         ),
         'aliases' => array(
             'alt' => 'market-view-controller'
@@ -14,8 +14,10 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
+        	'general-adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
             'market-post-form' => 'Market\Factory\PostFormFactory',     
-            'market-post-filter' => 'Market\Factory\PostFilterFactory'
+            'market-post-filter' => 'Market\Factory\PostFilterFactory',
+        	'listings-table' => 'Market\Factory\ListingsTableFactory'
         )
     ),
     'router' => array(
