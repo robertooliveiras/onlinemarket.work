@@ -31,7 +31,6 @@ class ListingsTable extends TableGateway {
 	}
 	
 	public function addPosting($data){
-		\Zend\Debug\Debug::dump($data);die;
 		list($city , $country) = explode(",", $data['cityCode']);
 		$data['city'] = trim($city);
 		$data['country'] = trim($country);
