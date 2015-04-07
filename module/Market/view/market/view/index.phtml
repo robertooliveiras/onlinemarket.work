@@ -1,2 +1,26 @@
-<?php
-echo '<h1>' . $this->escapeHtml($this->category) . '</h1>';
+<?php echo '<h1>' . $this->escapeHtml(ucfirst($this->category)) . '</h1>'; ?>
+
+<?php if ($this->list instanceof Zend\Db\ResultSet\ResultSet): ?>
+	<table>
+	  <tr>
+	    <th>Item</th>
+	    <th>Price</th>
+	    <th></th>
+	    <th>Posted</th>
+	  </tr>
+	  <?php while ($item = $this->list->current()):?>
+	  <tr style="background-color: <?php echo $this->cycle(["#F9A770","#FAC769","#FAEE58"])->next(); ?>">
+	    <td>
+	    	<a href="/market/view/item/<?php echo (int)$item->listings_id?>"><?php echo $this->escapeHtml($item->title); ?></a>
+	    </td>
+	    <td><?php echo $this->escapeHtml((float)$item->price); ?></td>
+	    <td></td>
+	    <!-- a chamada pode ser como indice de array (exemplo abaixo) ou como atributo de objeto (exemplos acima)  -->
+	    <td><?php echo $this->escapeHtml($item['date_created']); ?></td>
+	  </tr>
+	  <?php $this->list->next(); ?>
+	  <?php endwhile; ?>
+	</table>
+<?php else: ?>
+<?php Zend\Debug\Debug::dump($this->list); ?>
+<?php endif; ?>

@@ -12,7 +12,9 @@ class ViewController extends AbstractActionController
     {
         $category = $this->params()->fromRoute("category");
         
-        return new ViewModel( array('category' => $category));        
+        $listings = $this->listingsTable->getListingsByCategory($category);
+        
+        return new ViewModel( array('category' => $category, 'list'=>$listings));        
     }    
     
     public function itemAction()
@@ -23,7 +25,9 @@ class ViewController extends AbstractActionController
             $this->flashmessenger()->addMessage("Item not informed.");
             return $this->redirect()->toRoute('market');
         }
-        
-        return new ViewModel(array('itemId'=>$itemId));
+
+        $item = $this->listingsTable->getListingsById($itemId);
+                
+        return new ViewModel(array('itemId'=>$itemId,'item'=>$item));
     }
 }

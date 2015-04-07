@@ -1,0 +1,24 @@
+<?php if ($item): ?>
+	<h3><?php echo $this->escapeHtml(ucwords($item->title)); ?></h3>
+	<div style="width: 250px; float:left;">
+		<?php if($item->photo_filename):?>
+			<img alt="<?php echo $this->escapeHtml($item->title);?>" src="<?php echo $this->escapeHtml($item->photo_filename);?>">
+		<?php else:?>
+			no image...
+		<?php endif;?>
+	</div>
+	<div style="width: 400px; float:left; margin:20px">
+		<b>Contact Details:</b>
+		<br><?php echo $this->escapeHtml($item->contact_name); ?>
+		<br><?php echo $this->escapeHtml($item->contact_email); ?>
+		<br><?php echo $this->escapeHtml($item->contact_phone); ?>
+		<br><b>Posting Details:</b>
+		<br><?php echo $this->escapeHtml($item->date_created); ?>
+		<br>Price:<?php echo $this->escapeHtml($item->price); ?>
+		<br>City: <?php echo $this->escapeHtml($item->city); ?>, <?php echo $this->escapeHtml($item->country); ?>
+		<br><b>Description:</b>
+		<br><?php echo $this->escapeHtml($item->description); ?>
+	</div>
+<?php else: ?>
+	No recent posting;
+<?php endif; ?>

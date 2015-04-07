@@ -22,14 +22,10 @@ class IndexController extends AbstractActionController
         if($this->flashmessenger()->hasMessages()) {
             $messages = $this->flashmessenger()->getMessages();
         }
-//         return array('messages'=>$messages);
-        return new ViewModel(array('messages'=>$messages));
+        
+        $itemRecent = $this->listingsTable->getLatestListings();
+        
+        return new ViewModel(array('messages'=>$messages,'item'=>$itemRecent));
     }
 
-    public function fooAction()
-    {
-        // This shows the :controller and :action parameters in default route
-        // are working when you browse to /module-specific-root/skeleton/foo
-        return array();
-    }
 }

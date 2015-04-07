@@ -4,10 +4,10 @@ namespace Market\Controller;
 
 trait ListingsTableTrait {
 	
-	private $listingsTabel;
+	private $listingsTable;
 	
 	public function setListingsTable($listingsTable) {
-		$this->listingsTabel = $listingsTable;
+		$this->listingsTable = $listingsTable;
 	}
 }
 
