@@ -58,8 +58,8 @@ class PostForm extends Form
         $dateExpires->setLabel("Date Expires")
               ->setAttributes(array('size'=>20, 'maxLength'=>10));
         
-        $descripton = new Textarea('descripton');
-        $descripton->setLabel("Descripton")
+        $description = new Textarea('description');
+        $description->setLabel("Description")
               ->setAttributes(array('rows'=>4, 'cols'=>80, 'maxLength'=>4096));
         
         
@@ -94,7 +94,7 @@ class PostForm extends Form
              ->add($title)
              ->add($dateCreated)
              ->add($dateExpires)
-             ->add($descripton)
+             ->add($description)
              ->add($photoFilename)
              ->add($contactName)
              ->add($contactPhone)

@@ -57,7 +57,7 @@ class PostFilter extends InputFilter
 	    $dateExpires->getValidatorChain()
 	    ->attachByName('StringLength',array('min'=>10,'max'=>10));
 	    
-		// 	    descripton varchar 4096 default null
+		// 	    description varchar 4096 default null
 		// 	    photo_filename varchar 1024 default null
 		// 	    contact_name varchar 255 default null
 		// 	    contact_email varchar 255 default null
