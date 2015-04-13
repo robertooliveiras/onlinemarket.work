@@ -42,14 +42,21 @@ class PostFilter extends InputFilter
 	              ->attachByName('StringLength',array('min'=>1,'max'=>128));
         
         //date_created timestamp not null default current_timestamp
-	    $dateCreated = new Input('dateCreated');
+	    $dateCreated = new Input('date_created');
 	    $dateCreated->getFilterChain()
 	    			->attachByName('StringTrim')
 	    			->attachByName('StripTags');
 	    $dateCreated->getValidatorChain()
 	    			->attachByName('StringLength',array('min'=>10,'max'=>10));
 	    
-		// 	    date_expires timestamp not null default null
+
+	    $dateExpires = new Input('date_expires');
+	    $dateCreated->getFilterChain()
+	    ->attachByName('StringTrim')
+	    ->attachByName('StripTags');
+	    $dateExpires->getValidatorChain()
+	    ->attachByName('StringLength',array('min'=>10,'max'=>10));
+	    
 		// 	    descripton varchar 4096 default null
 		// 	    photo_filename varchar 1024 default null
 		// 	    contact_name varchar 255 default null
@@ -63,7 +70,8 @@ class PostFilter extends InputFilter
         
         $this->add($category)
              ->add($title)
-        	 ->add($dateCreated);
+        	 ->add($dateCreated)
+        	 ->add($dateExpires);
     }
 }
 

@@ -50,11 +50,11 @@ class PostForm extends Form
         $price->setLabel("Price")
         ->setAttributes(array('size'=>16, 'maxLength'=>16));
         
-        $dateCreated = new Date('dateCreated');
+        $dateCreated = new Date('date_created');
         $dateCreated->setLabel("Date Created")
               ->setAttributes(array('size'=>20, 'maxLength'=>10));
         
-        $dateExpires = new Date('dateExpires');
+        $dateExpires = new Date('date_expires');
         $dateExpires->setLabel("Date Expires")
               ->setAttributes(array('size'=>20, 'maxLength'=>10));
         
@@ -63,15 +63,15 @@ class PostForm extends Form
               ->setAttributes(array('rows'=>4, 'cols'=>80, 'maxLength'=>4096));
         
         
-        $contactName = new Text('contactName');
+        $contactName = new Text('contact_name');
         $contactName->setLabel("Contact Name")
               ->setAttributes(array('size'=>40, 'maxLength'=>255));
         
-        $contactEmail = new Email('contactEmail');
+        $contactEmail = new Email('contact_email');
         $contactEmail->setLabel("Contact Email")
               ->setAttributes(array('size'=>40, 'maxLength'=>255));
         
-        $contactPhone = new Text('contactPhone');
+        $contactPhone = new Text('contact_phone');
         $contactPhone->setLabel("Contact Phone")
               ->setAttributes(array('size'=>20, 'maxLength'=>32));
         
@@ -83,9 +83,9 @@ class PostForm extends Form
         $country->setLabel("Country")
               ->setAttributes(array('size'=>2, 'maxLength'=>2));
         
-        $deleteCode = new Text('deleteCode');
-        $deleteCode->setLabel("Delete Code")
-              ->setAttributes(array('size'=>30, 'maxLength'=>16));
+//         $deleteCode = new Text('delete_code');
+//         $deleteCode->setLabel("Delete Code")
+//               ->setAttributes(array('size'=>30, 'maxLength'=>16));
         
         $submit = new Submit('submit');                
         $submit->setAttribute('value', 'Post');

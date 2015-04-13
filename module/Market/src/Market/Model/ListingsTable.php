@@ -31,21 +31,17 @@ class ListingsTable extends TableGateway {
 	}
 	
 	public function addPosting($data){
-		list($city , $country) = explode(",", $data['cityCode']);
-		$data['city'] = trim($city);
-		$data['country'] = trim($country);
-		
-		$date = new \DateTime();
-		if ($data['expires']) {
-			if ($data['expires'] == 30) {
-				$date->add('P1M');
-			}else{
-				$date->add(new \DateInterval('P'.$data['expires'].'D'));
-			}
-		}
-		
-		$data['date_expires'] = $date->format("Y-m-d H:i:s");
-		unset($data['cityCode'],$data['expires'],$data['capcha'],$data['submit']);
+		$data['title'] = trim($data['title']);
+		$data['descripton'] = trim($data['descripton']);
+		$data['photo_filename'] = trim($data['photo_filename']);
+		$data['contact_name'] = trim($data['contact_name']);
+		$data['contact_phone'] = trim($data['contact_phone']);
+		$data['contact_email'] = trim($data['contact_email']);
+		$data['city'] = trim($data['city']);
+		$data['country'] = trim($data['country']);
+		$data['price'] = trim($data['price']);
+
+		unset($data['submit']);
 		$this->insert($data);
 	}
 }
