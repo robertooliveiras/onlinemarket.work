@@ -1,12 +1,76 @@
-<h3>Post Controller</h3>
 <style>
-    lable {
-    	width: 200px;
-    }
-</style>
-<?php $this->postForm->prepare(); ?> 
-<?php echo $this->form()->openTag($this->postForm); ?>
-<?php echo $this->formCollection($this->postForm); ?>
-<?php echo $this->form()->closeTag(); ?>
+label {
+	width: 200px;
+	float: left;
+}
 
-<?php Zend\Debug\Debug::dump($this->data); ?>
+input {
+	float: left;
+}
+</style>
+<h3>Post Controller</h3>
+<div class="span8">
+<?php //$this->postForm->prepare(); ?> 
+<?php //echo $this->form()->openTag($this->postForm); ?>
+<?php //echo $this->formCollection($this->postForm); ?>
+<?php //echo $this->form()->closeTag(); ?>
+<?php //Zend\Debug\Debug::dump($this->data); ?>
+<?php
+$form = $this->postForm;
+$form->prepare ();
+echo $this->form ()->openTag ( $form );
+?>
+<table width="100%">
+		<tr>
+			<td valign="TOP">
+				<table>
+					<tr>
+						<td><?php echo $this->formRow($form->get('category')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('price')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('title')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('date_created')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('date_expires')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('contact_name')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('contact_phone')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('contact_email')); ?></td>
+					</tr>
+				</table>
+			</td>
+			<td width="100px">&nbsp;</td>
+			<td valign="TOP">
+				<table>
+					<tr>
+						<td><?php echo $this->formRow($form->get('description')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('photo_filename')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('city')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formRow($form->get('country')); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->formSubmit($form->get('submit')); ?></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+<?php echo $this->form()->closeTag($form); ?>
+</div>

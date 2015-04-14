@@ -48,7 +48,7 @@ class PostForm extends Form
         
         $price = new Text('price');
         $price->setLabel("Price")
-        ->setAttributes(array('size'=>16, 'maxLength'=>16));
+        ->setAttributes(array('size'=>25, 'maxLength'=>16));
         
         $dateCreated = new Date('date_created');
         $dateCreated->setLabel("Date Created")
@@ -81,7 +81,7 @@ class PostForm extends Form
         
         $country = new Text('country');
         $country->setLabel("Country")
-              ->setAttributes(array('size'=>2, 'maxLength'=>2));
+              ->setAttributes(array('size'=>25, 'maxLength'=>2));
         
 //         $deleteCode = new Text('delete_code');
 //         $deleteCode->setLabel("Delete Code")

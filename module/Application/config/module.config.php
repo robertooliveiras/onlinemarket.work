@@ -68,7 +68,8 @@ return array(
         // opcição de uso no Module.php implementando o metodo getServiseConfig
         // ver comentários e outros detalhes no Module.php
         'invokables' => array(
-            'Application\Service\ExemploService' => 'Application\Service\ExemploService'
+            'Application\Service\ExemploService' => 'Application\Service\ExemploService',
+        	'application-session' =>'Zend\Session\Container'
         ),
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
