@@ -32,7 +32,7 @@ class ListingsTable extends TableGateway {
 	
 	public function addPosting($data){
 		$data['title'] = trim($data['title']);
-		$data['descripton'] = trim($data['descripton']);
+		$data['description'] = trim($data['description']);
 		$data['photo_filename'] = trim($data['photo_filename']);
 		$data['contact_name'] = trim($data['contact_name']);
 		$data['contact_phone'] = trim($data['contact_phone']);
